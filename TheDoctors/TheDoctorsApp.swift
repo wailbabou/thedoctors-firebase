@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
-
+import Firebase
 @main
 struct TheDoctorsApp: App {
+    init() {
+        FirebaseApp.configure()
+    }
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(SharedViewModel()).statusBar(hidden: true)
         }
     }
 }

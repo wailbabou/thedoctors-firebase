@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var sharedVM : SharedViewModel
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        if sharedVM.goToHome {
+            HomeView()
+        }else if sharedVM.goToAdmin{
+            AdminLoginView()
+        }else{
+            WelcomeView()
+        }
     }
 }
 
